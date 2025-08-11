@@ -1,0 +1,26 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <!-- Thông tin kết nối CSDL MSSQL -->
+        <property name="hibernate.connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
+        <property name="hibernate.connection.url">jdbc:sqlserver://localhost:1433;databaseName=PhoneStoreDB</property>
+        <property name="hibernate.connection.username">sa</property> <!-- Thay bằng username của bạn -->
+        <property name="hibernate.connection.password">123456</property> <!-- Thay bằng password của bạn -->
+
+        <!-- Dialect cho MSSQL -->
+        <property name="hibernate.dialect">org.hibernate.dialect.SQLServer2012Dialect</property>
+
+        <!-- Hiển thị câu lệnh SQL được Hibernate sinh ra trong console (hữu ích khi debug) -->
+        <property name="show_sql">true</property>
+        <property name="format_sql">true</property>
+
+        <!-- Tự động cập nhật schema (không khuyến khích trong production) -->
+        <property name="hbm2ddl.auto">update</property>
+
+        <!-- Khai báo các lớp Entity -->
+        <mapping class="com.yourcompany.phonestore.model.User"/>
+        <mapping class="com.yourcompany.phonestore.model.Product"/>
+    </session-factory>
+</hibernate-configuration>
